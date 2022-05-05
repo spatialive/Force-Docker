@@ -4,7 +4,7 @@ ENV LANG C.UTF-8
 
 LABEL maintainer="Renato Gomes <renatogomessilverio@gmail.com>"
 
-WORKDIR /APP
+WORKDIR /var/share/dados
 
 COPY ./install_force.sh /tmp
 

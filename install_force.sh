@@ -99,16 +99,18 @@ cd $INSTALL_DIR/splits/splits-1.9 && \
     && make clean 
 
 # Build FORCE from source
+mkdir -p /var/cache/apt/archives/partial && \
+apt-get autoclean && \
+apt-get install --reinstall python3-numpy && \
 mkdir -p $INSTALL_DIR/force && \
 cd $INSTALL_DIR/force && \
-git clone https://github.com/davidfrantz/force.git
-cd force
-sed -i -e 's%^[/]*\(#define SPLITS\)%\1%' src/cross-level/const-cl.h
-sed -i -e 's%^[/]*\(#define FORCE_DEBUG\)%\1%' src/cross-level/const-cl.h
-make -j24
-make install 
-make clean
-clear
+git clone -b master https://github.com/davidfrantz/force.git && \
+cd force && \
+./splits.sh enable && \
+./debug.sh enable && \
+make -j24 && \
+make install && \
+make clean 
 
 # Cleanup after successfull builds
 rm -rf $INSTALL_DIR

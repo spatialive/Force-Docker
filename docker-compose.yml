@@ -12,7 +12,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-          - 'force-data:/STORAGE'
+          - 'force-data:/var/share/dados'
           - '/etc/localtime:/etc/localtime' 
 
 volumes:

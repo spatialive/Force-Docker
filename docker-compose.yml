@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+
+
+  force-docker:
+    build: .
+    hostname: force-docker
+    container_name: force-docker
+    restart: on-failure 
+    #entrypoint: /APP/start.sh
+    stdin_open: true
+    tty: true
+    volumes:
+          - 'force-data:/STORAGE'
+          - '/etc/localtime:/etc/localtime' 
+
+volumes:
+  force-data:

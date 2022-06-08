@@ -8,7 +8,6 @@ services:
     hostname: force-docker
     container_name: force-docker
     restart: on-failure 
-    #entrypoint: /APP/start.sh
     stdin_open: true
     tty: true
     volumes:
